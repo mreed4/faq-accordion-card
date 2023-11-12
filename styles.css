@@ -17,3 +17,22 @@
 
   font-size: 12px;
 }
+
+/* https://supfort.com/pure-css-accordion-without-javascript/ */
+
+input {
+  display: none;
+}
+
+label {
+  display: block;
+  cursor: pointer;
+}
+
+input + label + .answer {
+  display: none;
+}
+
+input:checked + label + .answer {
+  display: block;
+}
