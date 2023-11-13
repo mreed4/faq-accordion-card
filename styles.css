@@ -30,6 +30,20 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--very-dark-red);
+  margin-bottom: 3rem;
+}
+
+p {
+  font-size: 1.25rem;
+  color: var(--very-dark-grayish-blue);
+  line-height: 1.5;
 }
 
 /* https://supfort.com/pure-css-accordion-without-javascript/ */
@@ -38,9 +52,32 @@ input {
   display: none;
 }
 
-label {
+img {
   display: block;
+}
+
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--very-dark-grayish-blue);
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+label:last-of-type,
+input:checked + label:last-of-type + .answer {
+  border-bottom: none;
+}
+
+input:checked + label {
+  color: var(--very-dark-red);
+  font-weight: 700;
+  border-bottom: 0;
 }
 
 input + label + .answer {
@@ -49,6 +86,13 @@ input + label + .answer {
 
 input:checked + label + .answer {
   display: block;
+  padding: 0 0 2rem;
+  border-bottom: 1px solid var(--light-grayish-blue);
+  animation: fade-in 150ms ease-in-out;
+}
+
+input:checked + label img {
+  transform: rotate(180deg);
 }
 
 .root-wrapper {
@@ -59,19 +103,17 @@ input:checked + label + .answer {
   position: relative;
   background-color: white;
   background-image: url("./images/bg-pattern-desktop.svg");
-  background-position: -50rem -25rem;
+  background-position: -47.5rem -24rem;
   background-repeat: no-repeat;
-  background-size: 105%;
   width: 80rem;
-  height: 50rem;
-  padding: 2rem 2rem 2rem 50rem;
+  padding: 4rem 6rem 6rem 40rem;
   border-radius: 2rem;
   box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
-.root-wrapper img,
-#root img {
+.root-wrapper > img,
+#root > img {
   position: absolute;
 }
 
@@ -84,7 +126,7 @@ img.box {
 
 img.woman {
   top: 4rem;
-  left: -6rem;
+  left: -6.5rem;
 }
 
 @keyframes move-up-down {
@@ -96,5 +138,14 @@ img.woman {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
